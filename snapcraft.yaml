@@ -1,0 +1,26 @@
+name: tempsensor
+base: core18
+version: '0.1'
+summary: tempsensor
+description: |
+    Python code for a tutorial on how to measure distance with a Raspberry Pi and an ultrasonic sensor.
+
+
+grade: stable
+confinement: strict
+
+parts:
+  tempsensor:
+    plugin: python
+    python-version: python3
+    source: https://github.com/IMRJ-1998/Temperature-Sensor.git
+    source-type: git
+    build-packages:
+      - git
+      - gcc
+      - python-six
+
+apps:
+  tempsensor:
+    command: bin/tempsensor
+    plugs: [home, network]
